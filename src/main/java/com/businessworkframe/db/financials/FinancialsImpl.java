@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 public class FinancialsImpl implements Financials{
 
     private final String URL = "https://projektskizze-a175.restdb.io/rest/sales-earnings";
-    private final String XAPIKEY = "eaabcde666d8b00aa3ebf7e2c58aa29cfb44d";
+    private final String XAPIKEY = "61c3445da7907613a1abfd78";
 
     ObjectMapperConfig objectMapperConfig = new ObjectMapperConfig();
     public FinancialsImpl() {

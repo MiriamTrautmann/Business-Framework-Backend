@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class CRMDbImpl implements CRMDb {
     private final String URL = "https://projektskizze-a175.restdb.io/rest/crm-1";
-    private final String XAPIKEY= "eaabcde666d8b00aa3ebf7e2c58aa29cfb44d" ;
+    private final String XAPIKEY= "61c3445da7907613a1abfd78" ;
 
     ObjectMapperConfig objectMapperConfig = new ObjectMapperConfig();
     public CRMDbImpl() {
