@@ -1,5 +1,6 @@
 package com.businessworkframe.db.financials;
 
+import com.businessworkframe.config.ObjectMapperConfig;
 import com.businessworkframe.db.dbDAOs.SalesAndEarningsDAO;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -11,6 +12,11 @@ public class FinancialsImpl implements Financials{
 
     private final String URL = "https://projektskizze-a175.restdb.io/rest/sales-earnings";
     private final String XAPIKEY = "eaabcde666d8b00aa3ebf7e2c58aa29cfb44d";
+
+    ObjectMapperConfig objectMapperConfig = new ObjectMapperConfig();
+    public FinancialsImpl() {
+        objectMapperConfig.configObjectMapper();
+    }
 
     @Override
     public SalesAndEarningsDAO[] getSalesAndEarnings(String startDate, String endDate) throws UnirestException, UnsupportedEncodingException {

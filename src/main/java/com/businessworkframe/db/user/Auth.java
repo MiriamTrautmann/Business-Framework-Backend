@@ -1,15 +1,15 @@
 package com.businessworkframe.db.user;
 
 public class Auth {
-    private String benutzerid;
+    private String userid;
     private Boolean isAdmin;
     private String token;
 
     public Auth() {
     }
 
-    public Auth(String benutzerid, Boolean isAdmin, String token) {
-        this.benutzerid = benutzerid;
+    public Auth(String userid, Boolean isAdmin, String token) {
+        this.userid = userid;
         this.isAdmin = isAdmin;
         this.token = token;
     }
@@ -22,12 +22,12 @@ public class Auth {
         isAdmin = admin;
     }
 
-    public String getBenutzerid() {
-        return benutzerid;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setBenutzerid(String benutzerid) {
-        this.benutzerid = benutzerid;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getToken() {

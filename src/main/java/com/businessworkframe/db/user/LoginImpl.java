@@ -40,7 +40,7 @@ public class LoginImpl implements  Login {
 
     @Override
     public Boolean logout(Auth auth) throws UnirestException {
-        HttpResponse response= Unirest.put(URL+"/"+auth.getBenutzerid())
+        HttpResponse response= Unirest.put(URL+"/"+auth.getUserid())
                 .header("content-type", "application/json")
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
@@ -50,7 +50,7 @@ public class LoginImpl implements  Login {
 
     @Override
     public Boolean isAuthorized(Auth auth) throws UnsupportedEncodingException, UnirestException {
-        UserResponseDAO[] responseUser = Unirest.get(URL+"?q="+URLEncoder.encode("{\"_id\": \""+auth.getBenutzerid()+"\"}", "UTF-8"))
+        UserResponseDAO[] responseUser = Unirest.get(URL+"?q="+URLEncoder.encode("{\"_id\": \""+auth.getUserid()+"\"}", "UTF-8"))
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asObject(UserResponseDAO[].class).getBody();

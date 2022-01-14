@@ -6,6 +6,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import java.io.UnsupportedEncodingException;
 
 public interface BPDb {
-    public BusinessPartner[] getBusinessPartner(int bp_id) throws UnirestException, UnsupportedEncodingException;
-    public BusinessPartner[] getAllBusinessPartner() throws UnirestException;
+    BusinessPartner[] getBusinessPartner(int bp_id) throws UnirestException, UnsupportedEncodingException;
+    BusinessPartner[] getAllBusinessPartner() throws UnirestException;
+
 }

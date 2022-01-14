@@ -1,13 +1,10 @@
 package com.businessworkframe.db.crm;
 
-import com.businessworkframe.model.Crm;
-import com.mashape.unirest.http.JsonNode;
+import com.businessworkframe.pages.dashboard.NewCostumerDisplay;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.util.List;
+import java.io.UnsupportedEncodingException;
 
 public interface CRMDb {
-    //public List<Crm> getAllCRMData () throws UnirestException;
+    NewCostumerDisplay getNewCostumerDisplay(String startDisplay, String endDisplay) throws UnirestException, UnsupportedEncodingException;
 }

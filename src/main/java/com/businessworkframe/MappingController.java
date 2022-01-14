@@ -1,6 +1,7 @@
 package com.businessworkframe;
 
 import com.businessworkframe.db.crm.CRMDbImpl;
+import com.businessworkframe.pages.dashboard.NewCostumerDisplay;
 import com.businessworkframe.db.user.Auth;
 import com.businessworkframe.db.user.Login;
 import com.businessworkframe.db.user.LoginImpl;
@@ -11,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -56,6 +56,14 @@ public class MappingController {
     public Boolean isAuthorized(@RequestBody Auth auth) throws UnirestException, UnsupportedEncodingException {
         Login login = new LoginImpl();
         return login.isAuthorized(auth);
+    }
+
+    //Dashboard
+
+    @GetMapping(path = "/dashboard/newCostumer/{startDisplay}/{endDisplay}")
+    @ResponseStatus(HttpStatus.OK)
+    public NewCostumerDisplay getNewCustomerDisplay( @PathVariable String startDisplay,@PathVariable String endDisplay) throws UnirestException, UnsupportedEncodingException {
+        return crmDb.getNewCostumerDisplay( startDisplay,endDisplay);
     }
 
 }
