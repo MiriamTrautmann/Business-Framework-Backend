@@ -7,5 +7,6 @@ import java.io.UnsupportedEncodingException;
 
 public interface TicketDb {
     TicketDisplay getAvgTickets () throws UnsupportedEncodingException, UnirestException;
+    TicketDisplay getNewTickets() throws UnsupportedEncodingException, UnirestException;
 
 }

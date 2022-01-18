@@ -4,6 +4,8 @@ import com.businessworkframe.db.crm.CRMDb;
 import com.businessworkframe.db.crm.CRMDbImpl;
 import com.businessworkframe.db.financials.FinancialsImpl;
 import com.businessworkframe.db.dbDAOs.SalesAndEarningsDAO;
+import com.businessworkframe.db.financials.InvoiceDB;
+import com.businessworkframe.db.financials.InvoiceImpl;
 import com.businessworkframe.db.tickets.TicketDb;
 import com.businessworkframe.db.tickets.TicketDbImpl;
 import com.businessworkframe.db.user.Auth;
@@ -29,7 +31,9 @@ public class Application {
 
         TicketDb ticketDb = new TicketDbImpl();
 
-        ticketDb.getAvgTickets();
+        InvoiceDB invoiceDB = new InvoiceImpl();
+
+        invoiceDB.getInvoiceDisplay();
 
     }
 }

@@ -3,25 +3,25 @@ package com.businessworkframe.pages.dashboard;
 import java.util.HashMap;
 
 public class TicketDisplay {
-    private int ticketTimeAvg;
+    private int ticketTime;
     private double targetAchievement;
     private HashMap ticketCourse;
 
     public TicketDisplay() {
     }
 
-    public TicketDisplay(int ticketTimeAvg, double targetAchievement, HashMap ticketCourse) {
-        this.ticketTimeAvg = ticketTimeAvg;
+    public TicketDisplay(int ticketTime, double targetAchievement, HashMap ticketCourse) {
+        this.ticketTime = ticketTime;
         this.targetAchievement = targetAchievement;
         this.ticketCourse = ticketCourse;
     }
 
-    public int getTicketTimeAvg() {
-        return ticketTimeAvg;
+    public int getTicketTime() {
+        return ticketTime;
     }
 
-    public void setTicketTimeAvg(int ticketTimeAvg) {
-        this.ticketTimeAvg = ticketTimeAvg;
+    public void setTicketTime(int ticketTime) {
+        this.ticketTime = ticketTime;
     }
 
     public double getTargetAchievement() {

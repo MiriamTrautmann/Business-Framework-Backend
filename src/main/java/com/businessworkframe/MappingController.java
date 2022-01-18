@@ -1,11 +1,18 @@
 package com.businessworkframe;
 
+import com.businessworkframe.db.crm.CRMDb;
 import com.businessworkframe.db.crm.CRMDbImpl;
+import com.businessworkframe.db.financials.InvoiceDB;
+import com.businessworkframe.db.financials.InvoiceImpl;
+import com.businessworkframe.db.tickets.TicketDb;
+import com.businessworkframe.db.tickets.TicketDbImpl;
+import com.businessworkframe.pages.dashboard.InvoiceDisplay;
 import com.businessworkframe.pages.dashboard.NewCostumerDisplay;
 import com.businessworkframe.db.user.Auth;
 import com.businessworkframe.db.user.Login;
 import com.businessworkframe.db.user.LoginImpl;
 import com.businessworkframe.model.User;
+import com.businessworkframe.pages.dashboard.TicketDisplay;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,7 +25,9 @@ import java.io.UnsupportedEncodingException;
 @RequestMapping("/api")
 public class MappingController {
 
-    CRMDbImpl crmDb = new CRMDbImpl();
+    CRMDb crmDb = new CRMDbImpl();
+    TicketDb ticketDb = new TicketDbImpl();
+    InvoiceDB invoiceDB = new InvoiceImpl();
 
     @GetMapping(path = "/hello")
     @ResponseStatus(HttpStatus.OK)
@@ -65,6 +74,25 @@ public class MappingController {
     public NewCostumerDisplay getNewCustomerDisplay( @PathVariable String startDisplay,@PathVariable String endDisplay) throws UnirestException, UnsupportedEncodingException {
         return crmDb.getNewCostumerDisplay( startDisplay,endDisplay);
     }
+
+    @GetMapping(path = "/dashboard/TicketsAvg")
+    @ResponseStatus(HttpStatus.OK)
+    public TicketDisplay getTicketDisplayAvg() throws UnirestException, UnsupportedEncodingException {
+        return ticketDb.getAvgTickets();
+    }
+
+    @GetMapping(path = "/dashboard/NewTicket")
+    @ResponseStatus(HttpStatus.OK)
+    public TicketDisplay getTicketDisplayNew() throws UnirestException, UnsupportedEncodingException {
+        return ticketDb.getNewTickets();
+    }
+
+    @GetMapping(path = "/dashboard/InvoiceDisplay")
+    @ResponseStatus(HttpStatus.OK)
+    public InvoiceDisplay getInvoiceDisplay() throws UnirestException, UnsupportedEncodingException {
+        return invoiceDB.getInvoiceDisplay();
+    }
+
 
 }
 
