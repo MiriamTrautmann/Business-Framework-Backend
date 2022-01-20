@@ -2,6 +2,8 @@ package com.businessworkframe;
 
 import com.businessworkframe.db.crm.CRMDb;
 import com.businessworkframe.db.crm.CRMDbImpl;
+import com.businessworkframe.db.employee.EmployeeDb;
+import com.businessworkframe.db.employee.EmployeeImpl;
 import com.businessworkframe.db.financials.InvoiceDB;
 import com.businessworkframe.db.financials.InvoiceImpl;
 import com.businessworkframe.db.tickets.TicketDb;
@@ -19,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -28,6 +31,7 @@ public class MappingController {
     CRMDb crmDb = new CRMDbImpl();
     TicketDb ticketDb = new TicketDbImpl();
     InvoiceDB invoiceDB = new InvoiceImpl();
+    EmployeeDb employeeDb = new EmployeeImpl();
 
     @GetMapping(path = "/hello")
     @ResponseStatus(HttpStatus.OK)
@@ -91,6 +95,12 @@ public class MappingController {
     @ResponseStatus(HttpStatus.OK)
     public InvoiceDisplay getInvoiceDisplay() throws UnirestException, UnsupportedEncodingException {
         return invoiceDB.getInvoiceDisplay();
+    }
+
+    @GetMapping(path = "/dashboard/EmployeeIncrease")
+    @ResponseStatus(HttpStatus.OK)
+    public HashMap getEmployeeIncrease() throws UnirestException, UnsupportedEncodingException {
+        return employeeDb.getEmmployeePerApartment();
     }
 
 
