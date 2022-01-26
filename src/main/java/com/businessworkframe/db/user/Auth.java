@@ -1,5 +1,8 @@
 package com.businessworkframe.db.user;
 
+/**
+ * Java-Klasse, die die Informationsstruktur der Authentifizierung definiert.
+ */
 public class Auth {
     private String userid;
     private Boolean isAdmin;

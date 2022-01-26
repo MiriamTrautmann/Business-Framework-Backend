@@ -2,6 +2,9 @@ package com.businessworkframe.pages.dashboard;
 
 import java.util.HashMap;
 
+/**
+ * Java-Klasse, die die Informationsstruktur für das Diagramm über den Kundenanstieg definiert.
+ */
 public class NewCostumerDisplay {
     private int newCostumerNumber;
     private double targetAchievement;

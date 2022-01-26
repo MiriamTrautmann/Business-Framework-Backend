@@ -1,6 +1,9 @@
-package com.businessworkframe.model;
+package com.businessworkframe.db.dbDAOs;
 
-public class BusinessPartner {
+/**
+ * Java-Klasse, die die Informationsstruktur eines Business-Partners definiert.
+ */
+public class BusinessPartnerDAO {
     private String _id;
     private int bp_id;
     private String bp_name;
@@ -14,10 +17,10 @@ public class BusinessPartner {
     private String bp_phonenumber;
 
 
-    public BusinessPartner() {
+    public BusinessPartnerDAO() {
     }
 
-    public BusinessPartner(String _id, int bp_id, String bp_name, int bp_zip, String bp_street, int bp_housenumber, String bp_contract_status, String bp_role, String bp_contact_person, int bp_payment_term, String bp_phonenumber) {
+    public BusinessPartnerDAO(String _id, int bp_id, String bp_name, int bp_zip, String bp_street, int bp_housenumber, String bp_contract_status, String bp_role, String bp_contact_person, int bp_payment_term, String bp_phonenumber) {
         this._id = _id;
         this.bp_id = bp_id;
         this.bp_name = bp_name;

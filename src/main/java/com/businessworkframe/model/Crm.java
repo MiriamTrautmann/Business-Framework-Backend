@@ -2,6 +2,9 @@ package com.businessworkframe.model;
 
 import java.util.Date;
 
+/**
+ * Java-Klasse, die die Informationsstruktur der CRM-Daten definiert.
+ */
 public class Crm {
     int nr;
     String name;

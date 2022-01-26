@@ -2,6 +2,9 @@ package com.businessworkframe.model;
 
 import java.util.Date;
 
+/**
+ * Java-Klasse, die die Informationsstruktur eines Mitarbeiters definiert.
+ */
 public class Employee {
     private String _id;
     private String titel;

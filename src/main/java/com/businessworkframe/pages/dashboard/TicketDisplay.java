@@ -2,6 +2,9 @@ package com.businessworkframe.pages.dashboard;
 
 import java.util.HashMap;
 
+/**
+ * Java-Klasse, die die Informationsstruktur für die Ticket-Anzeigen definiert.
+ */
 public class TicketDisplay {
     private int ticketTime;
     private double targetAchievement;

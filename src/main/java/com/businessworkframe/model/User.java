@@ -1,5 +1,8 @@
 package com.businessworkframe.model;
 
+/**
+ * Java-Klasse, die die Informationsstruktur eines Users definiert.
+ */
 public class User {
     private String firstName;
     private String name;

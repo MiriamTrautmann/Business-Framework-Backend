@@ -1,5 +1,8 @@
 package com.businessworkframe.model;
 
+/**
+ * Java-Klasse, die die Informationsstruktur einer Rolle im System definiert.
+ */
 public class Role {
     private String roleName;
     private Boolean isAdmin;

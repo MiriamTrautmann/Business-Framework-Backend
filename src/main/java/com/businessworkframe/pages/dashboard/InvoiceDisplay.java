@@ -2,7 +2,11 @@ package com.businessworkframe.pages.dashboard;
 
 import java.util.HashMap;
 
+/**
+ * Java-Klasse, die die Informationsstruktur für das Rechnungsdisplay definiert.
+ */
 public class InvoiceDisplay {
+
     private int invoiceNumber;
     private double targetAchievement;
     private HashMap invoiceCourse;

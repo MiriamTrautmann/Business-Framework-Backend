@@ -40,7 +40,6 @@ public class CRMDbImpl implements CRMDb {
         newCostumerDisplay.setTargetAchievement((double) newCustomerNumber/10*100);
 
         //Anzeige der neuen Kunden pro Monat für einen festgelegten Zeitraum
-        //https://projektskizze-a175.restdb.io/rest/crm-1?h={"$groupby":["$MONTH:creation_date"], "$aggregate": ["COUNT:name"]}&q={"creation_date":{"$gte":{"$date":"2022-01-01"},"$lt":{"$date":"2023-01-01"}}}
 
         HashMap costumerIncrease = Unirest.get(URL+"?h="+ URLEncoder.encode("{\"$groupby\":[\"$MONTH:creation_date\"], \"$aggregate\": [\"COUNT:name\"]}", "UTF-8") +"&q=" +
                         URLEncoder.encode("{\"creation_date\":{\"$gte\":{\"$date\":\""+startDisplay+"\"},\"$lt\":{\"$date\":\""+endDisplay+"\"}}}", "UTF-8"))
