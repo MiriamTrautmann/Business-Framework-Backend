@@ -20,7 +20,7 @@ public class CRMDbImpl implements CRMDb {
     }
 
     @Override
-    public NewCostumerDisplay getNewCostumerDisplay(String startDisplay, String endDisplay) throws UnirestException, UnsupportedEncodingException {
+    public NewCostumerDisplay getNewCostumerDisplay() throws UnirestException, UnsupportedEncodingException {
         LocalDateTime now = LocalDateTime.now();
         NewCostumerDisplay newCostumerDisplay = new NewCostumerDisplay();
         String s = Unirest.get(URL+"?q="+ URLEncoder.encode("{\"creation_date\":{\"$gt\":{\"$date\":\""+now.getYear()+"-01-01"+
@@ -42,7 +42,7 @@ public class CRMDbImpl implements CRMDb {
         //Anzeige der neuen Kunden pro Monat für einen festgelegten Zeitraum
 
         HashMap costumerIncrease = Unirest.get(URL+"?h="+ URLEncoder.encode("{\"$groupby\":[\"$MONTH:creation_date\"], \"$aggregate\": [\"COUNT:name\"]}", "UTF-8") +"&q=" +
-                        URLEncoder.encode("{\"creation_date\":{\"$gte\":{\"$date\":\""+startDisplay+"\"},\"$lt\":{\"$date\":\""+endDisplay+"\"}}}", "UTF-8"))
+                        URLEncoder.encode("{\"creation_date\":{\"$gte\":{\"$date\":\""+now.getYear()+"-01-01"+"\"},\"$lt\":{\"$date\":\""+now+"\"}}}", "UTF-8"))
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asObject(HashMap.class).getBody();

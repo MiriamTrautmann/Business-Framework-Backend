@@ -14,7 +14,15 @@ import java.time.ZoneId;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Java-Klasse, welche Methoden zur Ticketdarstellung liefert. Führt den Datenverkehr mit der Ticket-Datenbanktabelle aus
+ * und führt die Logik des JSON-Parsings aus.
+ */
 public class TicketDbImpl implements TicketDb {
+
+    /**
+     * Die URL zur Ticket-Datenbanktabelle wird fest gesetzt, sowie der API-Key.
+     */
     private final String URL = "https://projektskizze-a175.restdb.io/rest/tickets";
     private final String XAPIKEY= "61c3445da7907613a1abfd78" ;
 
@@ -23,6 +31,14 @@ public class TicketDbImpl implements TicketDb {
         objectMapperConfig.configObjectMapper();
     }
 
+    /**
+     * Methode, die durchschnittliche Ticket-Informationen an die Datenbank abfragt.
+     *
+     * @return TicketDisplay: Informationsstrukturobjekt
+     * @see TicketDisplay
+     * @throws UnsupportedEncodingException
+     * @throws UnirestException
+     */
     @Override
     public TicketDisplay getAvgTickets() throws UnsupportedEncodingException, UnirestException {
 
@@ -76,6 +92,12 @@ public class TicketDbImpl implements TicketDb {
         return ticketDisplay;
     }
 
+    /**
+     *
+     * @return
+     * @throws UnsupportedEncodingException
+     * @throws UnirestException
+     */
     @Override
     public TicketDisplay getNewTickets() throws UnsupportedEncodingException, UnirestException {
 

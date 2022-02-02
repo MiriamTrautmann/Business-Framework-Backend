@@ -106,17 +106,15 @@ public class MappingController {
     /**
      * Schnittstelle, die die Daten zum Frontend-Display für die neuen Kunden liefert.
      *
-     * @param startDisplay Wert des x-Wert-Startes im Dashboard-Diagramm
-     * @param endDisplay Wert des x-Wert-Endes im Dashboard-Diagramm
      * @return NewCustomerDisplay: Gibt das entsprechende Display-Objekt für die neuen Kunden zurück
      * @see NewCostumerDisplay
      * @throws UnirestException
      * @throws UnsupportedEncodingException
      */
-    @GetMapping(path = "/dashboard/newCostumer/{startDisplay}/{endDisplay}")
+    @GetMapping(path = "/dashboard/newCostumer")
     @ResponseStatus(HttpStatus.OK)
-    public NewCostumerDisplay getNewCustomerDisplay( @PathVariable String startDisplay,@PathVariable String endDisplay) throws UnirestException, UnsupportedEncodingException {
-        return crmDb.getNewCostumerDisplay( startDisplay,endDisplay);
+    public NewCostumerDisplay getNewCustomerDisplay() throws UnirestException, UnsupportedEncodingException {
+        return crmDb.getNewCostumerDisplay();
     }
 
     /**
