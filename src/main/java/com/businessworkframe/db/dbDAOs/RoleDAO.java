@@ -1,7 +1,8 @@
 package com.businessworkframe.db.dbDAOs;
 
-import java.util.Date;
-
+/**
+ * Java-Klasse, die die Datenbank-Informationsstruktur einer Nutzer-Rolle definiert.
+ */
 public class RoleDAO {
     private String _id;
     private String roleName;

@@ -2,6 +2,9 @@ package com.businessworkframe.db.dbDAOs;
 
 import java.util.Date;
 
+/**
+ * Java-Klasse, die die Datenbank-Informationsstruktur eines Tickets definiert.
+ */
 public class TicketDAO {
 
     private String _id;

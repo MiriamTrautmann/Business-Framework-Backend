@@ -1,7 +1,7 @@
 package com.businessworkframe.db.dbDAOs;
 
 /**
- * Java-Klasse, die die Informationsstruktur eines Business-Partners definiert.
+ * Java-Klasse, die die Datenbank-Informationsstruktur eines Business-Partners definiert.
  */
 public class BusinessPartnerDAO {
     private String _id;

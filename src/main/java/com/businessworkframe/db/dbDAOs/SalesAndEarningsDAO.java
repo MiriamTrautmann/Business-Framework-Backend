@@ -2,6 +2,9 @@ package com.businessworkframe.db.dbDAOs;
 
 import java.util.Date;
 
+/**
+ * Java-Klasse, die die Datenbank-Informationsstruktur eines SalesAndEarning-Datenbankobjekts definiert.
+ */
 public class SalesAndEarningsDAO {
     private String _id;
     private int year;

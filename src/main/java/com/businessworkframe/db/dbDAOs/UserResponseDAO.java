@@ -1,5 +1,8 @@
 package com.businessworkframe.db.dbDAOs;
 
+/**
+ * Java-Klasse, die die Datenbank-Informationsstruktur eines Users definiert.
+ */
 public class UserResponseDAO {
     private String _id;
     private String email;

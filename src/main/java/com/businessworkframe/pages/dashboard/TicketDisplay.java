@@ -1,6 +1,7 @@
 package com.businessworkframe.pages.dashboard;
 
-import java.util.HashMap;
+import java.util.TreeMap;
+
 
 /**
  * Java-Klasse, die die Informationsstruktur für die Ticket-Anzeigen definiert.
@@ -8,12 +9,12 @@ import java.util.HashMap;
 public class TicketDisplay {
     private int ticketTime;
     private double targetAchievement;
-    private HashMap ticketCourse;
+    private TreeMap ticketCourse;
 
     public TicketDisplay() {
     }
 
-    public TicketDisplay(int ticketTime, double targetAchievement, HashMap ticketCourse) {
+    public TicketDisplay(int ticketTime, double targetAchievement, TreeMap ticketCourse) {
         this.ticketTime = ticketTime;
         this.targetAchievement = targetAchievement;
         this.ticketCourse = ticketCourse;
@@ -35,11 +36,11 @@ public class TicketDisplay {
         this.targetAchievement = targetAchievement;
     }
 
-    public HashMap getTicketCourse() {
+    public TreeMap getTicketCourse() {
         return ticketCourse;
     }
 
-    public void setTicketCourse(HashMap ticketCourse) {
+    public void setTicketCourse(TreeMap ticketCourse) {
         this.ticketCourse = ticketCourse;
     }
 }

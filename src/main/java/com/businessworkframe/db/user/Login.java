@@ -6,7 +6,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Java-Interface, welches die Methoden für die Authentifizierung und Autorisierung definiert.
+ * Java-Interface, das die Methoden für die Authentifizierung und Autorisierung definiert.
  */
 public interface Login {
 

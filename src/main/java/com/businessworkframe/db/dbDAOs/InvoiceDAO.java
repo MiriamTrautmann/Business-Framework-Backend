@@ -2,6 +2,9 @@ package com.businessworkframe.db.dbDAOs;
 
 import java.util.Date;
 
+/**
+ * Java-Klasse, die die Datenbank-Informationsstruktur einer Rechnung definiert.
+ */
 public class InvoiceDAO {
     private String _id;
     private int invoice_id;

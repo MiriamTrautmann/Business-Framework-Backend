@@ -171,9 +171,8 @@ public class MappingController {
     @GetMapping(path = "/dashboard/EmployeeIncrease")
     @ResponseStatus(HttpStatus.OK)
     public HashMap getEmployeeIncrease() throws UnirestException, UnsupportedEncodingException {
-        return employeeDb.getEmmployeePerApartment();
+        return employeeDb.getEmployeePerApartment();
     }
-
 
 }
 

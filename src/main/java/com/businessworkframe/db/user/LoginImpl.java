@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 public class LoginImpl implements  Login {
 
     /**
-     * Die URL zur User-Datenbanktabelle wird fest gesetzt, sowie der API-Key.
+     * Die URL zur User-Datenbanktabelle wird als Konstante festgelegt, sowie der API-Key.
      */
     private final String URL = "https://projektskizze-a175.restdb.io/rest/app-user";
     private final String XAPIKEY= "61c3445da7907613a1abfd78" ;
@@ -25,7 +25,8 @@ public class LoginImpl implements  Login {
      *
      * @param user User-Informationen bestehend aus E-Mail und Passwort
      * @see User
-     * @return Authentifizierungsobjekt mit einem generierten Token
+     * @return Auth: Authentifizierungsobjekt mit einem generierten Token
+     * @see Auth
      * @throws UnirestException
      */
     @Override
@@ -34,9 +35,8 @@ public class LoginImpl implements  Login {
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asObject(UserResponseDAO[].class).getBody();
-        System.out.println("-------Logs:------"+responseUser[0].getPassword() +" ist gleich "+ user.getPassword());
-        System.out.println("-------Logs:------"+responseUser[0].get_id());
-        System.out.println("-------Logs:------"+URL+"/"+responseUser[0].get_id());
+        System.out.println("Log: ausgeführte URL --> " +URL + "?q=" + "{\"email\": \""+user.getEmail()+"\"}");
+
         if (responseUser[0].getPassword().equals(user.getPassword())){
             TokenGenerator tokenGenerator = new TokenGenerator();
             String token = tokenGenerator.generateToken(responseUser[0].get_id());
@@ -61,6 +61,8 @@ public class LoginImpl implements  Login {
      */
     @Override
     public Boolean logout(Auth auth) throws UnirestException {
+        System.out.println("Log: ausgeführte URL --> " +URL+"/"+auth.getUserid());
+
         HttpResponse response= Unirest.put(URL+"/"+auth.getUserid())
                 .header("content-type", "application/json")
                 .header("x-apikey", XAPIKEY)
@@ -82,6 +84,8 @@ public class LoginImpl implements  Login {
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asObject(UserResponseDAO[].class).getBody();
+
+        System.out.println("Log: ausgeführte URL --> " +URL+"?q="+"{\"_id\": \""+auth.getUserid()+"\"}");
         return responseUser[0].getToken().equals(auth.getToken());
     }
 }

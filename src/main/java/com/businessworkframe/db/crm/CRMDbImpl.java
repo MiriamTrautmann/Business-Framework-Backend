@@ -10,7 +10,15 @@ import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
+/**
+ * Java-Klasse, die Methoden zur Kundendarstellung liefert. Führt den Datenverkehr mit der CRM-Datenbanktabelle aus
+ * sowie die Logik des JSON-Parsings.
+ */
 public class CRMDbImpl implements CRMDb {
+
+    /**
+     * Die URL zur CRM-Datenbanktabelle wird als Konstante festgelegt, sowie der API-Key.
+     */
     private final String URL = "https://projektskizze-a175.restdb.io/rest/crm-1";
     private final String XAPIKEY= "61c3445da7907613a1abfd78" ;
 
@@ -19,6 +27,15 @@ public class CRMDbImpl implements CRMDb {
         objectMapperConfig.configObjectMapper();
     }
 
+    /**
+     * Methode, die Kunden-Informationen über den Zuwachs neuer Kunden an die Datenbank abfragt.
+     * targetArchivement: Das Ziel des Unternehmens ist ein Zuwachs von 10 neue Kunden im Jahr.
+     *
+     * @return newCustomerDisplay: Informationsstruktur
+     * @see NewCostumerDisplay
+     * @throws UnirestException
+     * @throws UnsupportedEncodingException
+     */
     @Override
     public NewCostumerDisplay getNewCostumerDisplay() throws UnirestException, UnsupportedEncodingException {
         LocalDateTime now = LocalDateTime.now();
@@ -29,14 +46,13 @@ public class CRMDbImpl implements CRMDb {
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asString().getBody();
-        System.out.println(URL+"?q="+ "{\"creation_date\":{\"$gt\":{\"$date\":\""+now.getYear()+"-01-01"+"\"},\"$lt\":" +
+        System.out.println("Log: ausgeführte URL --> " +URL+"?q="+ "{\"creation_date\":{\"$gt\":{\"$date\":\""+now.getYear()+"-01-01"+"\"},\"$lt\":" +
                 "{\"$date\":\""+now+"\"}}}&h={\"$aggregate\":[\"COUNT:creation_date\"]}");
         s= s.replace("{\"COUNT creation_date\":", "");
         s =s.replace("}","");
         int newCustomerNumber=Integer.parseInt(s);
         newCostumerDisplay.setNewCostumerNumber(Integer.parseInt(s));
 
-        //Ziel: 10 neue Kunden pro Jahr --> Prozentzahl
         newCostumerDisplay.setTargetAchievement((double) newCustomerNumber/10*100);
 
         //Anzeige der neuen Kunden pro Monat für einen festgelegten Zeitraum
@@ -46,6 +62,9 @@ public class CRMDbImpl implements CRMDb {
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asObject(HashMap.class).getBody();
+        System.out.println("Log: ausgeführte URL --> " +URL+"?h="+ "{\"$groupby\":[\"$MONTH:creation_date\"], \"$aggregate\": [\"COUNT:name\"]}" +"&q=" +
+                "{\"creation_date\":{\"$gte\":{\"$date\":\""+now.getYear()+"-01-01"+"\"},\"$lt\":{\"$date\":\""+now+"\"}}}");
+
         //HashMap ummappen
         costumerIncrease.forEach((k,v)-> {
             int costumerIncreaseNumber = Integer.parseInt(v.toString().replace("{COUNT name=", "").replace("}",""));
