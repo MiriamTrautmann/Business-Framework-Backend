@@ -46,4 +46,4 @@ The project uses the building tool Maven version 11 (https://maven.apache.org/).
 
 ## GitHub Repository 
 
-The current backend code is available at: 
+The current backend code is available at: https://github.com/MiriamTrautmann/Business-Framework-Backend.git
