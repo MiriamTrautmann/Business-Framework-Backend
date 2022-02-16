@@ -1,7 +1,7 @@
 package com.businessframework.db.user;
 
 import com.businessframework.db.dbDAOs.UserResponseDAO;
-import com.businessframework.model.User;
+import com.businessframework.models.User;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;

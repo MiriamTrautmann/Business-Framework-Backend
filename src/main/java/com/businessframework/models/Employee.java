@@ -1,4 +1,4 @@
-package com.businessframework.model;
+package com.businessframework.models;
 
 import java.util.Date;
 

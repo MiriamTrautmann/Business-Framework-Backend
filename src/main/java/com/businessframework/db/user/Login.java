@@ -1,6 +1,6 @@
 package com.businessframework.db.user;
 
-import com.businessframework.model.User;
+import com.businessframework.models.User;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import java.io.UnsupportedEncodingException;

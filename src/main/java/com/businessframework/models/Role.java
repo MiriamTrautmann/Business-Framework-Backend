@@ -1,4 +1,4 @@
-package com.businessframework.model;
+package com.businessframework.models;
 
 /**
  * Java-Klasse, die die Informationsstruktur einer Rolle im System definiert.

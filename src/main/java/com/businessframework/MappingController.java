@@ -13,7 +13,7 @@ import com.businessframework.pages.dashboard.NewCostumerDisplay;
 import com.businessframework.db.user.Auth;
 import com.businessframework.db.user.Login;
 import com.businessframework.db.user.LoginImpl;
-import com.businessframework.model.User;
+import com.businessframework.models.User;
 import com.businessframework.pages.dashboard.TicketDisplay;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.http.HttpStatus;
