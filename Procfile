@@ -1,1 +1,0 @@
-web: java -jar target/Business-Workframe-Backend-1.0-SNAPSHOT.jar
