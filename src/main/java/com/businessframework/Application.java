@@ -18,6 +18,5 @@ public class Application {
     public static void main (String[] args) throws UnirestException, UnsupportedEncodingException {
         SpringApplication.run(Application.class, args);
 
-
     }
 }
