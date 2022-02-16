@@ -43,12 +43,12 @@ public class TicketDbImpl implements TicketDb {
      */
     @Override
     public TicketDisplay getAvgTickets() throws UnsupportedEncodingException, UnirestException {
-
+        LocalDateTime now = LocalDateTime.now();
         TicketDisplay ticketDisplay = new TicketDisplay();
 
-        TicketDAO[] ticketDAO = Unirest.get(URL + "?q=" + URLEncoder.encode("{\"creation_date\":{\"$gte\":{\"$date\":\"2021-01-01\"}, " +
-                        "\"$lt\":{\"$date\":\"2022-01-01\"}}, \"close_date\":{\"$gte\":{\"$date\":\"2021-01-01\"}, " +
-                        "\"$lt\":{\"$date\":\"2022-01-01\"}}}", "UTF-8"))
+        TicketDAO[] ticketDAO = Unirest.get(URL + "?q=" + URLEncoder.encode("{\"creation_date\":{\"$gte\":{\"$date\":\""+ now.getYear()+"-01-01\"}, " +
+                        "\"$lt\":{\"$date\":\""+ now.plusMonths(12).getYear()+"-01-01\"}}, \"close_date\":{\"$gte\":{\"$date\":\""+ now.getYear()+"-01-01\"}, " +
+                        "\"$lt\":{\"$date\":\""+ now.plusMonths(12).getYear()+"-01-01\"}}}", "UTF-8"))
                 .header("x-apikey", XAPIKEY)
                 .header("cache-control", "no-cache")
                 .asObject(TicketDAO[].class).getBody();
@@ -64,7 +64,7 @@ public class TicketDbImpl implements TicketDb {
 
         ticketDisplay.setTargetAchievement((double) ((int) total / count) / 2 * 100);
         System.out.println(ticketDisplay.getTargetAchievement());
-        LocalDateTime now = LocalDateTime.now();
+
         TicketDAO[] ticketDAOLastYear = Unirest.get(URL + "?q=" + URLEncoder.encode("{\"close_date\":{\"$gte\":{\"$date\":\"" + now.minusMonths(12) + "\"}, " +
                         "\"$lt\":{\"$date\":\"" + now + "\"}}}", "UTF-8"))
                 .header("x-apikey", XAPIKEY)
